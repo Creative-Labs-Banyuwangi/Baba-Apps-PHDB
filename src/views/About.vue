@@ -1,5 +1,5 @@
 <template>
-  <div class="px-5">
+  <div class="">
     <div class="text-center mb-2">
       <div
         class="
@@ -14,19 +14,25 @@
         <img src="/img/gajah-oling.png" alt="" class="h-100 p-3 mx-auto" />
       </div>
     </div>
-    <v-card color="white" class="px-4 pt-4 pb-3">
-      <div class="" v-for="(data, i) in content" :key="i">
-        <h5 class="mt-3">{{ data.title }}</h5>
+    <div class="px-4 pt-4 pb-3">
+      <div class="card p-3 mt-3" v-for="(data, i) in content" :key="i">
+        <h5 class="">{{ data.title }}</h5>
         <p class="ml-2">
           {{ data.body }}
         </p>
       </div>
-      <h4 class="orange--text mt-5">Anggota Tim :</h4>
-      <div class="d-flex justify-content-between" v-for="(data, i) in team" :key="i">
-        <span>{{ i+1 }}. {{ data.name }}</span>
-        <span>({{ data.nim }})</span>
+      <div class="card p-3 mt-3">
+        <h5 class="">Anggota Tim :</h5>
+        <div
+          class="d-flex justify-content-between"
+          v-for="(data, i) in team"
+          :key="i"
+        >
+          <span>{{ i + 1 }}. {{ data.name }}</span>
+          <span>({{ data.nim }})</span>
+        </div>
       </div>
-    </v-card>
+    </div>
   </div>
 </template>
 

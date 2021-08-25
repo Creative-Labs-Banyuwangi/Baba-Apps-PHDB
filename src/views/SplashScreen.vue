@@ -1,5 +1,5 @@
 <template>
-  <div class="container ">
+  <div class="container">
     <div class="d-flex flex-column">
       <div
         class="
@@ -21,7 +21,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    setTimeout(() => {
+      this.$router.replace(this.$store.state.splashFrom);
+      setTimeout(() => {
+        this.$store.dispatch("setSplash", false);
+      }, 100);
+    }, 3000);
+  },
+};
 </script>
 
 <style>

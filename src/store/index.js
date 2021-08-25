@@ -1,11 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import firebase from "firebase/app";
 import { db } from "../firebase";
 import "firebase/auth";
 import "firebase/messaging";
-import router from "@/router";
-// import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -13,7 +10,8 @@ export default new Vuex.Store({
   state: {
     error: null,
     loading: true,
-    hardwareData: null
+    hardwareData: null,
+    splashFrom: "",
   },
   mutations: {
     setError(state, payload) {
@@ -28,19 +26,27 @@ export default new Vuex.Store({
     setData(state, payload) {
       state.hardwareData = payload;
     },
+    setSplash(state, payload) {
+      state.splashFrom = payload;
+    },
   },
   actions: {
     getData({ commit }) {
-      commit(`setLoading`, true);
-      db.ref('/').on("value", (data) => {
-        commit(`setData`, data.val());
-        commit(`setLoading`, false);
+      commit("setLoading", true);
+      db.ref("/").on("value", (data) => {
+        commit("setData", data.val());
+        commit("setLoading", false);
       });
     },
-    setTarif(commit, payload) {
+    setTarif({ commit }, payload) {
       db.ref("TARIF")
         .set(payload)
-        .then(router.push("/"));
+        .then(() => {
+          commit("setTarif", payload);
+        });
+    },
+    setSplash({ commit }, payload) {
+      commit("setSplash", payload);
     },
   },
   modules: {},

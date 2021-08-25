@@ -1,52 +1,42 @@
 <template>
   <div class="h-100">
-    <offline v-if="!isOnline" />
-    <template v-else>
-      <div class="container d-flex justify-content-between py-3">
-        <div class="d-flex">
-          <button
-            class="btn btn-nav mr-4"
-            @click="$router.push('/')"
-            v-show="$route.path != '/'"
-          >
-            <i class="mdi mdi-chevron-left"></i>
-          </button>
-          <img src="/img/ristek.png" height="40px" class="mr-3" />
-          <img src="/img/vokasi.png" height="40px" class="mr-3" />
-          <img src="/img/logo-poliwangi.png" height="40px" class="mr-3" />
-          <img src="/img/PHDB.png" height="40px" class="mr-3" />
-          <img src="/img/robotika.jpg" height="40px" class="mr-3" />
-        </div>
+    <div class="container d-flex justify-content-between py-3">
+      <div class="d-flex">
         <button
-          class="btn btn-nav"
-          @click="$router.push('/about')"
-          v-show="$route.path != '/about' && $route.path != '/s'"
+          class="btn btn-nav mr-4"
+          @click="$router.push('/')"
+          v-show="$route.path != '/'"
         >
-          <i class="mdi mdi-information-outline"></i>
+          <i class="mdi mdi-chevron-left"></i>
         </button>
+        <img src="/img/ristek.png" height="40px" class="mr-3" />
+        <img src="/img/vokasi.png" height="40px" class="mr-3" />
+        <img src="/img/logo-poliwangi.png" height="40px" class="mr-3" />
+        <img src="/img/PHDB.png" height="40px" class="mr-3" />
+        <img src="/img/robotika.jpg" height="40px" class="mr-3" />
       </div>
-      <!-- <router-link to="/">Home</router-link>
+      <button
+        class="btn btn-nav"
+        @click="$router.push('/about')"
+        v-show="$route.path != '/about' && $route.path != '/s'"
+      >
+        <i class="mdi mdi-information-outline"></i>
+      </button>
+    </div>
+    <!-- <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/s">Splash</router-link> -->
-      <router-view />
+    <router-view />
 
-      <footer class="bg-secondary">
-        <small>PHDB Robotika Poliwangi &copy; 2021</small>
-      </footer>
-    </template>
+    <footer class="bg-secondary" :class="$route.path == '/s' ? 'absolute' : ''">
+      <small>PHDB Robotika Poliwangi &copy; 2021</small>
+    </footer>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
-import Offline from "@/components/Offline";
-
 export default {
   name: "App",
-
-  components: {
-    Offline,
-  },
 
   data: () => ({
     dark: true,
@@ -59,15 +49,17 @@ export default {
     },
   },
 
-  created() {
-  },
+  created() {},
   mounted() {
-    console.log(this.$route);
-    // this.$router.afterEach((to, from) => {
-    //   if (from.name == null) {
-    //     this.$router.push('/s');
-    //   }
-    // })
+    this.$router.afterEach((to, from) => {
+      console.log(to);
+      if (from.name == null) {
+        this.$store.dispatch("setSplash", to.path);
+        setTimeout(() => {
+          this.$router.replace("/s");
+        }, 200);
+      }
+    });
   },
 
   computed: {

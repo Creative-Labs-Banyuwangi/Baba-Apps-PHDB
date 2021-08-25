@@ -1,22 +1,26 @@
 <template>
-  <JqxGauge
-    ref="myGauge"
-    @valueChanged="valueChanged($event)"
-    @valueChanging="valueChanging($event)"
-    :value="0"
-    :colorScheme="'scheme04'"
-    :animationDuration="1500"
-    :ranges="ranges"
-    :border="{ visible: false }"
-    :ticksMinor="ticksMinor"
-    :ticksMajor="ticksMajor"
-    :labels="{ visible: false, position: 'outside' }"
-    :styleProperty="style"
-    :caption="caption"
-    :cap="'radius: 0.04'"
-    :max="70"
-  >
-  </JqxGauge>
+  <div class="card p-3 mt-3">
+    <div class="">
+      <JqxGauge
+        ref="myGauge"
+        @valueChanged="valueChanged($event)"
+        @valueChanging="valueChanging($event)"
+        :value="0"
+        :colorScheme="'scheme04'"
+        :animationDuration="1500"
+        :ranges="ranges"
+        :border="{ visible: false }"
+        :ticksMinor="ticksMinor"
+        :ticksMajor="ticksMajor"
+        :labels="{ visible: false, position: 'outside' }"
+        :styleProperty="style"
+        :caption="caption"
+        :cap="'radius: 0.04'"
+        :max="70"
+      >
+      </JqxGauge>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -62,8 +66,6 @@ export default {
           startValue: 0,
           endValue: 30,
           style: { fill: "#3599DC", stroke: "#3599DC" },
-          // startDistance: "5%",
-          // endDistance: "5%",
           endWidth: 20,
           startWidth: 20,
         },
@@ -71,8 +73,6 @@ export default {
           startValue: 31,
           endValue: 50,
           style: { fill: "#F7CC2F", stroke: "#F7CC2F" },
-          // startDistance: "5%",
-          // endDistance: "5%",
           endWidth: 20,
           startWidth: 20,
         },
@@ -80,8 +80,6 @@ export default {
           startValue: 51,
           endValue: 70,
           style: { fill: "#EF3A38", stroke: "#EF3A38" },
-          // startDistance: "5%",
-          // endDistance: "5%",
           endWidth: 20,
           startWidth: 20,
         },
@@ -100,6 +98,15 @@ export default {
       console.log(this.$refs.myGauge);
     },
     valueChanging(e) {
+      let label = document.querySelector(".jqx-gauge-caption");
+      let attrs = {
+        x: "50%",
+        "dominant-baseline": "middle",
+        "text-anchor": "middle",
+      };
+      for (var key in attrs) {
+        label.setAttribute(key, attrs[key]);
+      }
       document.querySelector(".jqx-gauge-caption").innerHTML =
         parseFloat(e.args.value).toFixed(2) + " °C";
     },

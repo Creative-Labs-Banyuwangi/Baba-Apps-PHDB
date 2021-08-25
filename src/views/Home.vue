@@ -87,7 +87,7 @@ export default {
     },
     berat() {
       return [1, 2, 3, 4, 5].map((val) => {
-        return this.$store.state.hardwareData[`BERAT_${val}`];
+        return this.$store.state.hardwareData?.[`BERAT_${val}`] ?? 0;
       });
     },
     loading() {

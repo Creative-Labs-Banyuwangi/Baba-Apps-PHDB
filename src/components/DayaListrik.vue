@@ -1,5 +1,5 @@
 <template>
-  <div class="card p-3">
+  <div class="card p-3 mt-3">
     <h3>Monitoring Daya Listrik</h3>
     <div class="d-flex">
       <div class="w-50">

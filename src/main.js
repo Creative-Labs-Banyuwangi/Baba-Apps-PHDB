@@ -6,9 +6,7 @@ import store from "./store";
 import axios from "axios";
 import "./firebase";
 import "./assets/style.css";
-import VueOffline from "vue-offline";
 
-Vue.use(VueOffline);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
