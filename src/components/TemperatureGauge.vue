@@ -90,12 +90,9 @@ export default {
     this.$refs.myGauge.value = this.suhu;
   },
   methods: {
-    valueChanged(e) {
-      console.log("changed", e.args.value);
+    valueChanged() {
       this.caption.value = this.suhu;
       this.$refs.myGauge.caption.value = this.suhu;
-      console.log(this.$refs.myGauge.caption.value);
-      console.log(this.$refs.myGauge);
     },
     valueChanging(e) {
       let label = document.querySelector(".jqx-gauge-caption");

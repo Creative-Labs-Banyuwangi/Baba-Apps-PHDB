@@ -45,14 +45,12 @@ export default {
 
   watch: {
     $route() {
-      // console.log(this.$store.state.user);
     },
   },
 
   created() {},
   mounted() {
     this.$router.afterEach((to, from) => {
-      console.log(to);
       if (from.name == null) {
         this.$store.dispatch("setSplash", to.path);
         setTimeout(() => {
