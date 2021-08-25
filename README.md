@@ -1,4 +1,4 @@
-# jintarkop
+# Baba Apps
 
 ## Project setup
 ```
