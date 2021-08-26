@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <div class="d-flex">
+    <div class="d-flex mb-4">
       <img
         src="/img/gajah-oling.png"
         alt=""
         class="logo-between-text left p-3 mx-auto"
       />
       <div class="text-center">
-        <h1>Baba Apps</h1>
-        <small>Batik Batara Aplikasi</small>
+        <h1>BABA Apps</h1>
+        <p>Batik Batara Aplikasi</p>
         <div class="text-left card p-3 mt-3">
           <p>
-            Baba Apps adalah sebuah Aplikasi yang digunakan untuk memonitoring
+            BABA Apps adalah sebuah Aplikasi yang digunakan untuk memonitoring
             suhu, konsumsi listrik, dan monitoring berat kain untuk memastikan
             kain batik sudah kering atau belum pada alat Batik Smart Dryer.
           </p>
@@ -25,7 +25,10 @@
     </div>
 
     <temperature-gauge :suhu="suhu" />
-    <daya-listrik :data_listrik="{arus, frekuensi, tegangan, daya, tarif}"/>
+    <daya-listrik
+      :data_listrik="{ arus, frekuensi, tegangan, daya, tarif }"
+      @save="setTarif"
+    />
     <berat-kain :dataBerat="berat" />
   </div>
 </template>
@@ -39,9 +42,6 @@ export default {
   components: { TemperatureGauge, DayaListrik, BeratKain },
   created() {
     this.$store.dispatch("getData");
-  },
-  mounted() {
-    // this.$store.dispatch("requestPermission");
   },
   data: () => ({
     progressColor: {
@@ -95,6 +95,9 @@ export default {
     },
   },
   methods: {
+    setTarif(val) {
+      this.tarif = val;
+    },
     openToolCover() {
       if (this.isOpened) {
         this.$store.dispatch("setToolData", 0);

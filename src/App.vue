@@ -5,7 +5,7 @@
         <button
           class="btn btn-nav mr-4"
           @click="$router.push('/')"
-          v-show="$route.path != '/'"
+          v-show="$route.path != '/' && $route.path != '/s'"
         >
           <i class="mdi mdi-chevron-left"></i>
         </button>
@@ -17,15 +17,14 @@
       </div>
       <button
         class="btn btn-nav"
+        style="margin-top: -3px"
         @click="$router.push('/about')"
         v-show="$route.path != '/about' && $route.path != '/s'"
       >
         <i class="mdi mdi-information-outline"></i>
       </button>
     </div>
-    <!-- <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/s">Splash</router-link> -->
+
     <router-view />
 
     <footer class="bg-secondary" :class="$route.path == '/s' ? 'absolute' : ''">
@@ -42,11 +41,6 @@ export default {
     dark: true,
     routeName: "",
   }),
-
-  watch: {
-    $route() {
-    },
-  },
 
   created() {},
   mounted() {
@@ -71,7 +65,11 @@ export default {
       return this.$store.state.aturData.berat;
     },
   },
-
-  methods: {},
 };
 </script>
+
+<style>
+h6 {
+  font-size: 1.1rem;
+}
+</style>

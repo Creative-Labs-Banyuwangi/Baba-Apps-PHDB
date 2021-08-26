@@ -1,28 +1,25 @@
 <template>
-  <div class="">
-    <div class="text-center mb-2">
-      <div
-        class="
-          border border-5 border-dark
-          rounded-circle
-          logo-splash
-          mx-auto
-          mt-5
-          d-flex
-        "
-      >
-        <img src="/img/gajah-oling.png" alt="" class="h-100 p-3 mx-auto" />
-      </div>
+  <div class="container">
+    <img src="/img/gajah-oling.png" alt="" class="bg-logo" />
+    <div class="text-center mb-3">
+      <img
+        src="/img/team.jpg"
+        alt=""
+        class="w-100 mx-auto"
+        style="border-radius: 4px"
+      />
     </div>
-    <div class="px-4 pt-4 pb-3">
-      <div class="card p-3 mt-3" v-for="(data, i) in content" :key="i">
-        <h5 class="">{{ data.title }}</h5>
-        <p class="ml-2">
-          {{ data.body }}
-        </p>
+    <div class="pb-3 mt-3 pt-2">
+      <div v-for="(data, i) in content" :key="i">
+        <h6 class="font-weight-bold">{{ data.title }}</h6>
+        <div class="card p-3 mt-2 mb-4">
+          <p>
+            {{ data.body }}
+          </p>
+        </div>
       </div>
-      <div class="card p-3 mt-3">
-        <h5 class="">Anggota Tim :</h5>
+      <h6 class="font-weight-bold">Anggota Tim :</h6>
+      <div class="card p-3 mt-2 mb-4">
         <div
           class="d-flex justify-content-between"
           v-for="(data, i) in team"

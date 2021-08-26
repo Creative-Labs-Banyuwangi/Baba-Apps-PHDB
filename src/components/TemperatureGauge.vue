@@ -1,6 +1,7 @@
 <template>
-  <div class="card p-3 mt-3">
-    <div class="">
+  <div class="mt-3">
+    <h6 class="font-weight-bold">Monitoring Suhu</h6>
+    <div class="card p-3 mt-2 mb-4 align-items-center">
       <JqxGauge
         ref="myGauge"
         @valueChanged="valueChanged($event)"
@@ -17,6 +18,7 @@
         :caption="caption"
         :cap="'radius: 0.04'"
         :max="70"
+        style="transform: scale(1.3) translateY(20px)"
       >
       </JqxGauge>
     </div>

@@ -39,11 +39,14 @@ export default new Vuex.Store({
       });
     },
     setTarif({ commit }, payload) {
-      db.ref("TARIF")
-        .set(payload)
-        .then(() => {
-          commit("setTarif", payload);
-        });
+      return new Promise((resolve) => {
+        db.ref("TARIF")
+          .set(payload)
+          .then(() => {
+            commit("setTarif", payload);
+            resolve(payload);
+          });
+      });
     },
     setSplash({ commit }, payload) {
       commit("setSplash", payload);
