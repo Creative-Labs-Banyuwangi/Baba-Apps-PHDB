@@ -1,7 +1,6 @@
 module.exports = {
-  transpileDependencies: ["vuetify"],
   pwa: {
-    name: "BABA Apps",
+    name: "BaBa Apps",
     themeColor: "#e6455a",
     start_url: "/",
     manifestOptions: {
