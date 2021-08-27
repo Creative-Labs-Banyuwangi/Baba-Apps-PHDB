@@ -8,7 +8,12 @@
           <b>{{ berat }} gram</b>
         </div>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+          <div
+            class="progress-bar"
+            :class="beratPercentage[i] > 90 ? 'bg-warning' : ''"
+            role="progressbar"
+            :style="`width: ${beratPercentage[i]}%`"
+          ></div>
         </div>
         <div class="d-flex justify-content-between">
           <b class="text-primary">Basah</b>
@@ -22,5 +27,15 @@
 <script>
 export default {
   props: ["dataBerat"],
+  computed: {
+    beratPercentage() {
+      return this.dataBerat.map((val) => val / 5000 * 100)
+    }
+  },
+  methods: {
+    // beratPercentage(val) {
+    //   return val / 5000 * 100;
+    // },
+  },
 };
 </script>

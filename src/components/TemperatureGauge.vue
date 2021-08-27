@@ -18,7 +18,7 @@
         :caption="caption"
         :cap="'radius: 0.04'"
         :max="70"
-        style="transform: scale(1.3) translateY(20px)"
+        style="transform: scale(1.2) translateY(20px)"
       >
       </JqxGauge>
     </div>
