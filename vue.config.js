@@ -1,13 +1,15 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
   pwa: {
-    name: 'JintarKop',
-    themeColor: '#FFA71F',
-    start_url: '/',
+    name: "BABA Apps",
+    themeColor: "#e6455a",
+    start_url: "/",
     manifestOptions: {
       background_color: "#fff ",
-      orientation: "portrait",
-      gcm_sender_id: "602636053987"
+      orientation: "portrait"
+    },
+    workboxOptions: {
+      exclude: [/_redirects/]
     }
   }
 };
