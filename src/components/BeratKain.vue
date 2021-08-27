@@ -10,14 +10,14 @@
         <div class="progress">
           <div
             class="progress-bar"
-            :class="beratPercentage[i] > 90 ? 'bg-warning' : ''"
+            :class="berat < 500 ? 'bg-warning' : ''"
             role="progressbar"
             :style="`width: ${beratPercentage[i]}%`"
           ></div>
         </div>
         <div class="d-flex justify-content-between">
+          <b class="text-warning">Kering</b>
           <b class="text-primary">Basah</b>
-          <b class="text-danger">Kering</b>
         </div>
       </div>
     </div>
@@ -29,13 +29,8 @@ export default {
   props: ["dataBerat"],
   computed: {
     beratPercentage() {
-      return this.dataBerat.map((val) => val / 5000 * 100)
+      return this.dataBerat.map((val) =>  val / 5000 * 100)
     }
-  },
-  methods: {
-    // beratPercentage(val) {
-    //   return val / 5000 * 100;
-    // },
   },
 };
 </script>
