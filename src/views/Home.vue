@@ -7,11 +7,11 @@
         class="logo-between-text left p-3 mx-auto"
       />
       <div class="text-center">
-        <h1>BABA Apps</h1>
+        <h1>BaBa Apps</h1>
         <p>Batik Batara Aplikasi</p>
         <div class="text-left card p-3 mt-3">
           <p>
-            BABA Apps adalah sebuah Aplikasi yang digunakan untuk memonitoring
+            BaBa Apps adalah sebuah Aplikasi yang digunakan untuk memonitoring
             suhu, konsumsi listrik, dan monitoring berat kain untuk memastikan
             kain batik sudah kering atau belum pada alat Batik Smart Dryer.
           </p>

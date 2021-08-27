@@ -17,7 +17,7 @@
         class="text-center border border-5 border-dark p-3 mt-4"
         style="border-radius: 12px"
       >
-        <h1>BABA Apps</h1>
+        <h1>BaBa Apps</h1>
         <h5>Batik Batara Apps</h5>
       </div>
     </div>

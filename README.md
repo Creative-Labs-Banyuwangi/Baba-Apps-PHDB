@@ -1,4 +1,4 @@
-# Baba Apps
+# BaBa Apps
 
 ## Project setup
 ```
